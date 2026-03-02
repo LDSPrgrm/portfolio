@@ -1,78 +1,87 @@
-<script setup>
+﻿<script setup>
 const aiProjects = [
   {
     title: "AlgoVision",
     role: "Multimodal AI Pipeline",
-    desc: "LLM orchestration pipeline converting text to animated videos with Manim. Features multimodal chatbot for real-time interaction.",
-    tags: ["Python", "LLM Agents", "Manim", "Streamlit"],
+    desc: "LLM orchestration pipeline converting text to animated videos with Manim. Features multimodal chatbot for real-time interaction and automated error correction.",
+    tags: ["FastAPI", "Vue.js", "LLM Agents", "Manim"],
     icon: "mdi-robot-excited-outline",
-    color: "primary",
+    color: "#FF4B4B",
   },
   {
     title: "CycloSync",
     role: "Real-time IoT Telemetry",
-    desc: "Real-time telemetry platform with Google Gemini integration for context-aware coaching. WebSocket-first architecture.",
-    tags: ["Vue.js", "WebSockets", "Gemini API", "IoT"],
+    desc: "Real-time cycling analytics platform connecting to BLE devices. Transforms raw sensor streams into structured performance metrics with Google Gemini coaching.",
+    tags: ["Vue.js", "WebSockets", "BLE", "IoT"],
     icon: "mdi-lightning-bolt",
-    color: "deep-purple-accent-3",
+    color: "#00D4B1",
   },
   {
     title: "LiveSubs",
     role: "Low-Latency Audio Stream",
-    desc: "Low-latency STT pipeline for JP-EN translation. Uses WASAPI loopback and custom hallucination guardrails.",
+    desc: "Low-latency STT pipeline for JP-EN translation. Uses WASAPI loopback, Whisper model, and custom hallucination guardrails for real-time sub generation.",
     tags: ["Python", "WASAPI", "Streaming ASR", "Real-time"],
     icon: "mdi-waveform",
-    color: "teal-accent-4",
+    color: "#6C5CE7",
   },
 ];
 
 const sweProjects = [
   {
     title: "SakAI",
-    role: "Real-time Ride-Hailing Platform",
-    desc: "Modern, scalable ride-hailing app with real-time geospatial matching, live location tracking, and an admin dashboard. Built with a robust microservices-ready architecture.",
+    role: "Ride-Hailing Platform",
+    desc: "Multi-role marketplace with negotiation flows, and trust-score system. Implemented real-time systems with offline support and subscription features.",
     tags: ["Flutter", "Go", "PostgreSQL", "WebSockets"],
     icon: "mdi-car-connected",
-    color: "amber-darken-3",
+    color: "#FF8F6B",
   },
   {
     title: "Errandlify",
     role: "On-Demand Errand Services",
-    desc: "A robust mobile application designed for on-demand errand services, leveraging Supabase for backend-as-a-service and real-time interactive mapping with OpenStreetMap.",
-    tags: ["Flutter", "Supabase", "Riverpod", "Firebase"],
+    desc: "Cash-on-delivery errand and delivery platform for small-town markets. Built multi-role marketplace handling add-on tasks and subscription capabilities.",
+    tags: ["Flutter", "Supabase", "Firebase"],
     icon: "mdi-truck-delivery",
-    color: "blue-darken-2",
+    color: "#00E5FF",
   },
   {
-    title: "Food-Mate",
-    role: "Distributed Ordering System",
-    desc: "Centralized ordering system with REST API syncing for mobile/web clients and real-time inventory management.",
-    tags: ["PHP", "REST API", "SQL Optimization", "Admin Panel"],
-    icon: "mdi-food-variant",
-    color: "deep-orange-accent-3",
+    title: "Tryk",
+    role: "Backend Architecture",
+    desc: "Architected backend services for ride matching and dispatch logic. Implemented event-driven real-time synchronization, reducing latency vs polling.",
+    tags: ["Flutter", "Laravel", "PostgreSQL", "Event-Driven"],
+    icon: "mdi-server-network",
+    color: "#FF4B4B",
   },
 ];
 </script>
 
 <template>
   <v-container class="py-16">
-    <div class="text-center mb-16">
+    <div class="text-center mb-14 fade-up">
       <h2 class="section-header mb-4">
-        <span class="grand-gradient-text">Featured Work</span>
+        <span class="text-secondary">Featured </span
+        ><span class="grand-gradient-text">Projects</span>
       </h2>
       <p class="section-subtitle">
-        A collection of tools crafted with precision. Grouped by their core
-        technical focus.
+        Architectures engineered for scale, low-latency, and real-world impact.
       </p>
     </div>
 
     <!-- AI Group -->
-    <div class="mb-16">
-      <div class="d-flex align-center mb-8 px-2">
-        <div class="icon-box bg-red-lighten-5 text-primary mr-4 rounded-xl">
-          <v-icon size="32">mdi-brain</v-icon>
+    <div class="mb-14">
+      <div
+        class="d-flex justify-center justify-md-start align-center mb-8 px-2 fade-up"
+      >
+        <div
+          class="icon-box mr-4 rounded-xl"
+          style="
+            background: rgba(255, 75, 75, 0.08);
+            color: #ff4b4b;
+            border: 1px solid rgba(255, 75, 75, 0.15);
+          "
+        >
+          <v-icon size="28">mdi-brain</v-icon>
         </div>
-        <h3 class="text-h4 font-weight-bold text-secondary">
+        <h3 class="text-h4 font-weight-bold text-secondary font-display">
           AI & Machine Learning
         </h3>
       </div>
@@ -80,41 +89,50 @@ const sweProjects = [
       <v-row>
         <v-col v-for="(project, i) in aiProjects" :key="i" cols="12" md="4">
           <v-card
-            class="ultra-glass h-100 d-flex flex-column pa-6 project-card overflow-hidden"
+            class="ultra-glass h-100 d-flex flex-column pa-6 project-card overflow-hidden fade-up"
+            :class="'stagger-' + (i + 1)"
             elevation="0"
           >
+            <!-- Hover Glow Bar -->
             <div
-              class="card-glow"
-              :style="`background: ${project.color}`"
+              class="card-top-bar"
+              :style="{ background: project.color }"
             ></div>
 
-            <!-- Watermark Icon -->
-            <v-icon class="watermark-icon" :color="project.color" size="160">{{
-              project.icon
-            }}</v-icon>
+            <!-- Watermark -->
+            <v-icon
+              class="watermark-icon"
+              :style="{ color: project.color }"
+              size="150"
+              >{{ project.icon }}</v-icon
+            >
 
             <!-- Header -->
-            <div class="relative z-10 mb-6">
+            <div class="relative" style="z-index: 2">
               <div class="d-flex justify-space-between align-start mb-4">
                 <div
                   class="icon-box"
-                  :class="`bg-${project.color}-lighten-5 text-${project.color}`"
+                  :style="{
+                    background: project.color + '12',
+                    color: project.color,
+                    border: '1px solid ' + project.color + '25',
+                  }"
                 >
-                  <v-icon size="28">{{ project.icon }}</v-icon>
+                  <v-icon size="24">{{ project.icon }}</v-icon>
                 </div>
                 <v-chip
-                  size="small"
-                  class="font-weight-bold text-uppercase"
+                  size="x-small"
+                  class="font-weight-bold text-uppercase font-mono"
                   :color="project.color"
                   variant="tonal"
-                  style="letter-spacing: 0.5px; font-size: 0.7rem"
+                  style="letter-spacing: 0.5px; font-size: 0.65rem"
                 >
                   {{ project.role }}
                 </v-chip>
               </div>
 
               <h4
-                class="text-h4 font-weight-black text-secondary mb-1"
+                class="text-h4 font-weight-black text-secondary mb-2 font-display"
                 style="line-height: 1.1"
               >
                 {{ project.title }}
@@ -122,29 +140,29 @@ const sweProjects = [
             </div>
 
             <!-- Description -->
-            <v-card-text class="pt-0 relative z-10 px-0">
+            <v-card-text
+              class="pt-0 px-0 flex-grow-1 relative"
+              style="z-index: 2"
+            >
               <p
-                class="text-body-1 text-secondary mb-6 opacity-90"
-                style="line-height: 1.6; min-height: 4.8em"
+                class="text-body-1 mb-6"
+                style="line-height: 1.7; color: var(--secondary-dim)"
               >
                 {{ project.desc }}
               </p>
-              <div class="d-flex flex-wrap gap-2">
+              <div class="d-flex flex-wrap gap-2 mt-auto">
                 <v-chip
                   v-for="tag in project.tags"
                   :key="tag"
                   size="small"
                   variant="outlined"
                   :color="project.color"
-                  class="font-weight-bold bg-white"
-                  style="border-color: currentColor; opacity: 0.9"
+                  class="font-weight-bold tag-chip"
                 >
                   {{ tag }}
                 </v-chip>
               </div>
             </v-card-text>
-
-            <!-- View Project button removed -->
           </v-card>
         </v-col>
       </v-row>
@@ -152,13 +170,20 @@ const sweProjects = [
 
     <!-- SWE Group -->
     <div>
-      <div class="d-flex align-center mb-8 px-2">
+      <div
+        class="d-flex justify-center justify-md-start align-center mb-8 px-2 fade-up"
+      >
         <div
-          class="icon-box bg-blue-lighten-5 text-blue-darken-2 mr-4 rounded-xl"
+          class="icon-box mr-4 rounded-xl"
+          style="
+            background: rgba(0, 212, 177, 0.08);
+            color: #00d4b1;
+            border: 1px solid rgba(0, 212, 177, 0.15);
+          "
         >
-          <v-icon size="32">mdi-monitor-dashboard</v-icon>
+          <v-icon size="28">mdi-monitor-dashboard</v-icon>
         </div>
-        <h3 class="text-h4 font-weight-bold text-secondary">
+        <h3 class="text-h4 font-weight-bold text-secondary font-display">
           Software Engineering
         </h3>
       </div>
@@ -166,41 +191,50 @@ const sweProjects = [
       <v-row>
         <v-col v-for="(project, i) in sweProjects" :key="i" cols="12" md="4">
           <v-card
-            class="ultra-glass h-100 d-flex flex-column pa-6 project-card overflow-hidden"
+            class="ultra-glass h-100 d-flex flex-column pa-6 project-card overflow-hidden fade-up"
+            :class="'stagger-' + (i + 1)"
             elevation="0"
           >
+            <!-- Hover Glow Bar -->
             <div
-              class="card-glow"
-              :style="`background: ${project.color}`"
+              class="card-top-bar"
+              :style="{ background: project.color }"
             ></div>
 
-            <!-- Watermark Icon -->
-            <v-icon class="watermark-icon" :color="project.color" size="160">{{
-              project.icon
-            }}</v-icon>
+            <!-- Watermark -->
+            <v-icon
+              class="watermark-icon"
+              :style="{ color: project.color }"
+              size="150"
+              >{{ project.icon }}</v-icon
+            >
 
             <!-- Header -->
-            <div class="relative z-10 mb-6">
+            <div class="relative" style="z-index: 2">
               <div class="d-flex justify-space-between align-start mb-4">
                 <div
                   class="icon-box"
-                  :class="`bg-${project.color}-lighten-5 text-${project.color}`"
+                  :style="{
+                    background: project.color + '12',
+                    color: project.color,
+                    border: '1px solid ' + project.color + '25',
+                  }"
                 >
-                  <v-icon size="28">{{ project.icon }}</v-icon>
+                  <v-icon size="24">{{ project.icon }}</v-icon>
                 </div>
                 <v-chip
-                  size="small"
-                  class="font-weight-bold text-uppercase"
+                  size="x-small"
+                  class="font-weight-bold text-uppercase font-mono"
                   :color="project.color"
                   variant="tonal"
-                  style="letter-spacing: 0.5px; font-size: 0.7rem"
+                  style="letter-spacing: 0.5px; font-size: 0.65rem"
                 >
                   {{ project.role }}
                 </v-chip>
               </div>
 
               <h4
-                class="text-h4 font-weight-black text-secondary mb-1"
+                class="text-h4 font-weight-black text-secondary mb-2 font-display"
                 style="line-height: 1.1"
               >
                 {{ project.title }}
@@ -208,29 +242,29 @@ const sweProjects = [
             </div>
 
             <!-- Description -->
-            <v-card-text class="pt-0 relative z-10 px-0">
+            <v-card-text
+              class="pt-0 px-0 flex-grow-1 relative"
+              style="z-index: 2"
+            >
               <p
-                class="text-body-1 text-secondary mb-6 opacity-90"
-                style="line-height: 1.6; min-height: 4.8em"
+                class="text-body-1 mb-6"
+                style="line-height: 1.7; color: var(--secondary-dim)"
               >
                 {{ project.desc }}
               </p>
-              <div class="d-flex flex-wrap gap-2">
+              <div class="d-flex flex-wrap gap-2 mt-auto">
                 <v-chip
                   v-for="tag in project.tags"
                   :key="tag"
                   size="small"
                   variant="outlined"
                   :color="project.color"
-                  class="font-weight-bold bg-white"
-                  style="border-color: currentColor; opacity: 0.9"
+                  class="font-weight-bold tag-chip"
                 >
                   {{ tag }}
                 </v-chip>
               </div>
             </v-card-text>
-
-            <!-- View Project button removed -->
           </v-card>
         </v-col>
       </v-row>
@@ -239,73 +273,63 @@ const sweProjects = [
 </template>
 
 <style scoped>
-.gap-2 {
-  gap: 8px;
-}
-
-/* Premium Card Styles */
+/* ─── Project Card ──────────────────────────────────────── */
 .project-card {
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
 }
 
 .project-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 24px 32px -8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Watermark Icon */
+/* ─── Top Glow Bar ──────────────────────────────────────── */
+.card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+  transform-origin: left;
+  z-index: 3;
+}
+
+.project-card:hover .card-top-bar {
+  transform: scaleX(1);
+}
+
+/* ─── Watermark Icon ────────────────────────────────────── */
 .watermark-icon {
   position: absolute;
-  bottom: -20px;
-  right: -20px;
-  opacity: 0.06;
+  bottom: -16px;
+  right: -16px;
+  opacity: 0.3;
   transform: rotate(-15deg);
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
   pointer-events: none;
   z-index: 0;
 }
 
 .project-card:hover .watermark-icon {
-  transform: rotate(0deg) scale(1.1);
-  opacity: 0.1;
-  bottom: -10px;
-  right: -10px;
+  transform: rotate(0deg) scale(1.08);
+  opacity: 0.5;
 }
 
-/* Subtle Top Glow on Hover */
-.card-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-  transform-origin: left;
+/* ─── Tag Chips ─────────────────────────────────────────── */
+.tag-chip {
+  border-color: currentColor !important;
+  opacity: 0.8;
+  transition: all 0.25s ease;
+  font-size: 0.72rem !important;
 }
 
-.project-card:hover .card-glow {
-  transform: scaleX(1);
-}
-
-.icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover .icon-box {
-  transform: scale(1.1);
-}
-
-.hover-arrow .v-icon {
-  transition: transform 0.2s;
-}
-.hover-arrow:hover .v-icon {
-  transform: translateX(6px);
+.tag-chip:hover {
+  opacity: 1;
+  box-shadow: 0 0 12px currentColor;
 }
 </style>

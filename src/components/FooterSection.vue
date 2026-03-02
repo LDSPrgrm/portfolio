@@ -1,116 +1,153 @@
-﻿<script setup></script>
+﻿<template>
+  <v-footer
+    class="bg-transparent py-12 mt-12 text-center position-relative overflow-hidden"
+    style="border-top: 1px solid rgba(255, 255, 255, 0.04)"
+  >
+    <!-- Footer Glow -->
+    <div class="footer-glow"></div>
 
-<template>
-  <div class="footer-wrapper">
-    <!-- Big Contact Mesh -->
-    <div class="mesh-footer"></div>
-
-    <v-footer
-      class="bg-transparent py-16 text-center relative pointer-events-auto"
-    >
-      <v-container>
-        <v-row justify="center">
-          <v-col cols="12" md="10">
-            <div
-              class="ultra-glass pa-6 pa-sm-10 pa-md-16 rounded-3xl relative overflow-hidden"
+    <v-container class="relative" style="z-index: 2">
+      <v-row justify="center" align="center" class="mb-8">
+        <v-col cols="12" md="8" lg="7">
+          <v-card
+            class="ultra-glass pa-8 pa-md-12 rounded-xl cta-card fade-up"
+            elevation="0"
+          >
+            <h2
+              class="text-h4 text-sm-h3 font-weight-black text-secondary mb-4 font-display"
             >
-              <!-- Decorators -->
-
-              <div class="relative z-10">
-                <h2 class="text-h4 text-sm-h3 text-md-h2 font-weight-black mb-6 font-display">
-                  Ready to <span class="text-primary">Ship?</span>
-                </h2>
-
-                <p
-                  class="text-body-2 text-sm-body-1 text-md-h5 text-secondary font-weight-light mb-8 mb-sm-12"
-                  style="max-width: 700px; margin: 0 auto"
-                >
-                  I'm currently looking for new opportunities. Whether you have
-                  a question or just want to say hi, I'll try my best to get
-                  back to you!
-                </p>
-
-                <div class="d-flex flex-column flex-sm-row flex-wrap justify-center align-center gap-4 mb-8 mb-sm-12">
-                  <v-btn
-                    size="large"
-                    color="primary"
-                    height="56"
-                    class="px-8 text-body-1 font-weight-bold shadow-glow"
-                    rounded="pill"
-                    prepend-icon="mdi-email-fast"
-                    href="mailto:ldsprgrm@gmail.com"
-                  >
-                    Say Hello
-                  </v-btn>
-
-                  <v-btn
-                    size="large"
-                    variant="outlined"
-                    color="secondary"
-                    height="56"
-                    class="px-8 text-body-1 bg-white"
-                    rounded="pill"
-                    prepend-icon="mdi-github"
-                    href="https://github.com/LDSPrgrm"
-                    target="_blank"
-                  >
-                    Check Code
-                  </v-btn>
-                </div>
-
-                <!-- Social buttons removed -->
-              </div>
-            </div>
-
-            <div
-              class="mt-12 text-caption text-grey font-weight-bold tracking-widest text-uppercase"
+              Ready to Build?
+            </h2>
+            <p
+              class="text-body-1 mb-8 mx-auto"
+              style="
+                max-width: 500px;
+                line-height: 1.7;
+                color: var(--secondary-dim);
+              "
             >
-              Â© {{ new Date().getFullYear() }} Lawrence David Subala
+              Whether it's a real-time event-driven architecture or an
+              intelligent LLM agent pipeline, let's architect
+              <strong class="text-secondary">reality</strong> together.
+            </p>
+            <v-btn
+              href="mailto:ldsprgrm@gmail.com"
+              color="primary"
+              size="x-large"
+              class="font-weight-bold px-10 cta-btn"
+              rounded="pill"
+              height="56"
+            >
+              <span style="font-size: 1rem; letter-spacing: 0.3px"
+                >ldsprgrm@gmail.com</span
+              >
+              <v-icon end size="22" class="ml-2">mdi-email-fast</v-icon>
+            </v-btn>
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12">
+          <v-divider class="mb-6" style="opacity: 0.06"></v-divider>
+          <div
+            class="d-flex flex-column flex-sm-row justify-space-between align-center px-4"
+          >
+            <p
+              class="text-caption font-weight-bold mb-4 mb-sm-0 font-mono"
+              style="
+                letter-spacing: 0.5px;
+                color: var(--secondary-dim);
+                font-size: 0.7rem;
+              "
+            >
+              &copy; {{ new Date().getFullYear() }} Lawrence David Subala · La
+              Union, Philippines
+            </p>
+            <div class="d-flex align-center gap-2">
+              <v-btn
+                icon="mdi-github"
+                variant="text"
+                size="small"
+                href="https://github.com/LDSPrgrm"
+                target="_blank"
+                class="footer-icon"
+              ></v-btn>
+              <v-btn
+                icon="mdi-linkedin"
+                variant="text"
+                size="small"
+                href="http://www.linkedin.com/in/lawsubala"
+                target="_blank"
+                class="footer-icon"
+              ></v-btn>
+              <v-btn
+                icon="mdi-file-document-outline"
+                variant="text"
+                size="small"
+                href="/resume.pdf"
+                target="_blank"
+                class="footer-icon"
+              ></v-btn>
             </div>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-footer>
-  </div>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-footer>
 </template>
 
 <style scoped>
-.footer-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.mesh-footer {
+/* ─── Footer Glow ───────────────────────────────────────── */
+.footer-glow {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 600px;
+  bottom: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 70vw;
   background: radial-gradient(
-    circle at 50% 100%,
-    rgba(255, 75, 75, 0.08) 0%,
+    circle,
+    rgba(255, 75, 75, 0.04) 0%,
     transparent 70%
   );
+  border-radius: 50%;
   pointer-events: none;
+  z-index: 0;
 }
 
-.shadow-glow {
-  box-shadow: 0 10px 30px rgba(255, 75, 75, 0.4);
-  transition: transform 0.2s;
-}
-.shadow-glow:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 40px rgba(255, 75, 75, 0.5);
+/* ─── CTA Card ──────────────────────────────────────────── */
+.cta-card {
+  border-top: 2px solid rgba(255, 75, 75, 0.25) !important;
+  transition: all 0.4s ease;
 }
 
-.gap-6 {
-  gap: 24px;
-}
-.gap-4 {
-  gap: 16px;
+.cta-card:hover {
+  border-top-color: rgba(255, 75, 75, 0.6) !important;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(255, 75, 75, 0.06) !important;
 }
 
-.rounded-3xl {
-  border-radius: 32px !important;
+/* ─── CTA Button ────────────────────────────────────────── */
+.cta-btn {
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 24px rgba(255, 75, 75, 0.25) !important;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 75, 75, 0.4) !important;
+}
+
+/* ─── Footer Icons ──────────────────────────────────────── */
+.footer-icon {
+  color: rgba(255, 255, 255, 0.35) !important;
+  transition: all 0.25s ease;
+}
+
+.footer-icon:hover {
+  color: #ff4b4b !important;
+  transform: translateY(-2px);
 }
 </style>

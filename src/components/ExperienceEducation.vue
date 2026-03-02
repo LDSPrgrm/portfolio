@@ -1,170 +1,322 @@
-<script setup>
-const experience = [
-  {
-    role: 'Software Engineer Intern',
-    company: 'Lorma Colleges',
-    period: 'Jun 2025 – Aug 2025',
-    color: '#FF4B4B',
-    details: [
-      'Architected and shipped "Tryk", a hyper-local ride-hailing platform serving thousands of daily interactions.',
-      'Engineered the core real-time dispatching engine using WebSocket protocols for instant driver allocation.',
-      'Optimized geospatial queries reducing ride-matching latency by 40% under high load.',
-      'Designed a multi-role admin dashboard for granular fleet management and analytics.'
-    ]
-  }
-]
+﻿<script setup>
+import { ref } from "vue";
 
-const education = [
+const experience = ref([
   {
-    degree: 'Bachelor of Science in Computer Science',
-    school: 'LORMA Colleges',
-    location: 'La Union, Philippines',
-    year: 'June 2026',
-    icon: 'mdi-school',
-    color: '#00D4B1'
+    title: "Full-Stack Software Engineer",
+    company: "Lorma Colleges",
+    location: "La Union, Philippines",
+    period: "Jun 2025 – Aug 2025",
+    desc: "Developed a full-stack ride-hailing system spanning mobile clients, backend APIs, and admin tools. Architected backend services for ride matching, dispatch logic, and trip lifecycle management. Implemented real-time ride synchronization via event-driven architecture.",
+    color: "#00D4B1",
   },
   {
-    degree: 'ITPEC IT Passport Certification',
-    school: 'Certification',
-    location: 'April 2025',
-    year: '',
-    icon: 'mdi-certificate',
-    color: '#6C5CE7'
-  }
-]
+    title: "Full-Stack Software Engineer",
+    company: "SakAI Platform",
+    period: "Feb 2026 – Present",
+    desc: "Developing a cash-on-delivery errand and delivery platform. Built multi-role marketplace with negotiation flows, add-on task handling, and trust-score system. Implemented real-time systems with offline support.",
+    color: "#FF4B4B",
+  },
+  {
+    title: "AI Developer",
+    company: "AlgoVision",
+    period: "Apr 2025 – Present",
+    desc: "Developed AI-powered platform generating animated instructional videos from high-level topics. Designed content generation pipeline with automated error detection and self-correction for reliability.",
+    color: "#6C5CE7",
+  },
+]);
+
+const education = ref([
+  {
+    degree: "Bachelor of Science in Computer Science",
+    school: "LORMA Colleges",
+    period: "2022 – 2026",
+    desc: "Focus on AI/ML, Software Engineering, Data Structures, and Algorithms.",
+    color: "#00D4B1",
+  },
+]);
+
+const certifications = ref([
+  {
+    name: "ITPEC IT Passport Certification",
+    year: "2025",
+    color: "#FF8F6B",
+  },
+]);
 </script>
 
 <template>
   <v-container class="py-16">
-    <div class="text-center mb-16">
-      <h2 class="section-header mb-4">
-        <span class="grand-gradient-text">The Journey</span>
-      </h2>
-    </div>
-
     <v-row>
       <!-- Experience Column -->
-      <v-col cols="12" md="7">
-        <v-card class="ultra-glass pa-8 h-100" rounded="xl">
-          <div class="d-flex align-center mb-10">
-            <div class="icon-box bg-red-lighten-5 text-primary mr-4">
-               <v-icon size="32">mdi-briefcase-variant</v-icon>
-            </div>
-            <h3 class="text-h4 font-weight-bold text-secondary">Experience</h3>
+      <v-col cols="12" md="7" class="px-md-6 mb-12 mb-md-0">
+        <div class="d-flex align-center mb-10 fade-up">
+          <div
+            class="icon-box mr-4 rounded-xl"
+            style="
+              background: rgba(255, 75, 75, 0.08);
+              color: #ff4b4b;
+              border: 1px solid rgba(255, 75, 75, 0.15);
+            "
+          >
+            <v-icon size="28">mdi-briefcase-outline</v-icon>
           </div>
-          
-          <div class="experience-track pl-4 ml-4">
-            <div v-for="(item, i) in experience" :key="i" class="relative pb-12">
-              <div class="timeline-node"></div>
-              
-              <v-card class="active-card pa-6 ml-6" elevation="0" rounded="xl" border>
-                 <div class="d-flex flex-column flex-sm-row justify-space-between align-start mb-4">
-                    <div>
-                      <h4 class="text-h5 font-weight-bold text-secondary mb-1">{{ item.role }}</h4>
-                      <div class="text-subtitle-1 text-primary font-weight-bold">{{ item.company }}</div>
-                    </div>
-                    <v-chip color="primary" variant="flat" size="small" class="font-weight-bold mt-2 mt-sm-0">
-                      {{ item.period }}
-                    </v-chip>
-                 </div>
-                 
-                 <ul class="pl-4 text-body-1 text-secondary" style="line-height: 1.8;">
-                   <li v-for="(d, idx) in item.details" :key="idx" class="mb-2">
-                     {{ d }}
-                   </li>
-                 </ul>
+          <h2
+            class="section-header font-display"
+            style="font-size: 2.5rem !important"
+          >
+            Experience
+          </h2>
+        </div>
+
+        <div class="timeline-container relative pl-6">
+          <div class="timeline-line"></div>
+
+          <div
+            v-for="(item, i) in experience"
+            :key="i"
+            class="timeline-item mb-10 relative fade-up"
+            :class="'stagger-' + (i + 1)"
+          >
+            <div
+              class="timeline-dot"
+              :style="{
+                background: item.color,
+                boxShadow: '0 0 12px ' + item.color,
+              }"
+            ></div>
+
+            <div class="timeline-content">
+              <div
+                class="text-caption text-uppercase font-weight-bold mb-2 font-mono"
+                :style="{ color: item.color }"
+                style="font-size: 0.7rem; letter-spacing: 1px"
+              >
+                <v-icon size="small" class="mr-1 mb-1"
+                  >mdi-calendar-range</v-icon
+                >
+                {{ item.period }}
+              </div>
+
+              <v-card
+                class="ultra-glass pa-6 rounded-xl timeline-card"
+                elevation="0"
+              >
+                <h3
+                  class="text-h6 text-sm-h5 font-weight-black text-secondary mb-1 font-display"
+                >
+                  {{ item.title }}
+                </h3>
+                <h4
+                  class="text-body-2 font-weight-bold mb-4"
+                  style="color: var(--secondary-dim); opacity: 0.8"
+                >
+                  {{ item.company }}
+                  <span v-if="item.location" class="text-caption">
+                    · {{ item.location }}</span
+                  >
+                </h4>
+                <p
+                  class="text-body-2"
+                  style="line-height: 1.7; color: var(--secondary-dim)"
+                >
+                  {{ item.desc }}
+                </p>
               </v-card>
             </div>
           </div>
-        </v-card>
+        </div>
       </v-col>
 
-      <!-- Education Column -->
-      <v-col cols="12" md="5">
-        <v-card class="ultra-glass pa-8 h-100" rounded="xl">
-          <div class="d-flex align-center mb-10">
-            <div class="icon-box bg-teal-lighten-5 text-teal-accent-4 mr-4">
-               <v-icon size="32">mdi-school</v-icon>
-            </div>
-            <h3 class="text-h4 font-weight-bold text-secondary">Education</h3>
+      <!-- Education & Certs Column -->
+      <v-col cols="12" md="5" class="px-md-6">
+        <!-- Education -->
+        <div class="d-flex align-center mb-10 fade-up">
+          <div
+            class="icon-box mr-4 rounded-xl"
+            style="
+              background: rgba(0, 212, 177, 0.08);
+              color: #00d4b1;
+              border: 1px solid rgba(0, 212, 177, 0.15);
+            "
+          >
+            <v-icon size="28">mdi-school-outline</v-icon>
           </div>
+          <h2
+            class="section-header font-display"
+            style="font-size: 2.5rem !important"
+          >
+            Education
+          </h2>
+        </div>
 
-          <div class="d-flex flex-column gap-6">
-            <v-card 
-              v-for="(edu, i) in education" 
-              :key="i"
-              class="pa-6 edu-card"
-              rounded="xl"
-              elevation="0"
-              border
-            >
-              <div class="d-flex align-start">
-                <v-avatar :color="edu.color" variant="tonal" size="56" class="mr-4 rounded-lg">
-                  <v-icon size="32">{{ edu.icon }}</v-icon>
-                </v-avatar>
-                <div>
-                   <h4 class="text-h6 font-weight-bold text-secondary line-height-tight mb-1">
-                     {{ edu.degree }}
-                   </h4>
-                   <div class="text-body-2 font-weight-medium text-grey-darken-2 mb-2">
-                     {{ edu.school }}
-                   </div>
-                   <div class="text-caption font-weight-bold text-uppercase" :style="`color: ${edu.color}`">
-                     {{ edu.location }} {{ edu.year ? `• ${edu.year}` : '' }}
-                   </div>
-                </div>
+        <div class="timeline-container relative pl-6 mb-14">
+          <div class="timeline-line"></div>
+
+          <div
+            v-for="(item, i) in education"
+            :key="i"
+            class="timeline-item mb-10 relative fade-up"
+          >
+            <div
+              class="timeline-dot"
+              :style="{
+                background: item.color,
+                boxShadow: '0 0 12px ' + item.color,
+              }"
+            ></div>
+
+            <div class="timeline-content">
+              <div
+                class="text-caption text-uppercase font-weight-bold mb-2 font-mono"
+                :style="{ color: item.color }"
+                style="font-size: 0.7rem; letter-spacing: 1px"
+              >
+                <v-icon size="small" class="mr-1 mb-1"
+                  >mdi-calendar-range</v-icon
+                >
+                {{ item.period }}
               </div>
-            </v-card>
+
+              <v-card
+                class="ultra-glass pa-6 rounded-xl timeline-card"
+                elevation="0"
+              >
+                <h3
+                  class="text-h6 text-sm-h5 font-weight-black text-secondary mb-1 font-display"
+                >
+                  {{ item.degree }}
+                </h3>
+                <h4
+                  class="text-body-2 font-weight-bold mb-4"
+                  style="color: var(--secondary-dim); opacity: 0.8"
+                >
+                  {{ item.school }}
+                </h4>
+                <p
+                  class="text-body-2"
+                  style="line-height: 1.7; color: var(--secondary-dim)"
+                >
+                  {{ item.desc }}
+                </p>
+              </v-card>
+            </div>
           </div>
-        </v-card>
+        </div>
+
+        <!-- Certifications -->
+        <div class="d-flex align-center mb-8 fade-up">
+          <div
+            class="icon-box mr-4 rounded-xl"
+            style="
+              background: rgba(255, 143, 107, 0.08);
+              color: #ff8f6b;
+              border: 1px solid rgba(255, 143, 107, 0.15);
+            "
+          >
+            <v-icon size="28">mdi-certificate-outline</v-icon>
+          </div>
+          <h2
+            class="section-header font-display"
+            style="font-size: 2rem !important"
+          >
+            Certifications
+          </h2>
+        </div>
+
+        <div class="fade-up stagger-2">
+          <v-card
+            v-for="cert in certifications"
+            :key="cert.name"
+            class="ultra-glass pa-5 rounded-xl d-flex align-center timeline-card"
+            elevation="0"
+          >
+            <v-icon size="28" :style="{ color: cert.color }" class="mr-4"
+              >mdi-medal-outline</v-icon
+            >
+            <div>
+              <h4 class="text-body-1 font-weight-bold text-secondary">
+                {{ cert.name }}
+              </h4>
+              <span
+                class="text-caption font-mono"
+                :style="{ color: cert.color }"
+                style="font-size: 0.7rem; letter-spacing: 1px"
+                >{{ cert.year }}</span
+              >
+            </div>
+          </v-card>
+        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <style scoped>
-.icon-box {
-  width: 64px;
-  height: 64px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ─── Timeline ──────────────────────────────────────────── */
+.timeline-container {
+  padding-left: 24px;
 }
 
-.experience-track {
-  border-left: 2px dashed rgba(0,0,0,0.1);
-}
-
-.timeline-node {
+.timeline-line {
   position: absolute;
-  left: -25px;
-  top: 24px;
-  width: 16px;
-  height: 16px;
-  background: white;
-  border: 4px solid #FF4B4B;
+  top: 10px;
+  bottom: 0;
+  left: 31px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.01)
+  );
+  z-index: 0;
+}
+
+.timeline-item {
+  z-index: 1;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -20px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(255, 75, 75, 0.15);
+  border: 2px solid #0a0a0a;
+  z-index: 2;
+  transition: all 0.35s ease;
 }
 
-.active-card {
-  background: linear-gradient(145deg, #ffffff, #f8f9fa);
-  transition: transform 0.3s ease;
-}
-.active-card:hover {
-  transform: translateX(8px);
-  border-color: rgba(255, 75, 75, 0.3);
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.4);
 }
 
-.edu-card {
-  transition: all 0.3s ease;
-}
-.edu-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+/* ─── Timeline Card Hover ───────────────────────────────── */
+.timeline-card {
+  position: relative;
+  overflow: hidden;
 }
 
-.gap-6 { gap: 24px; }
-.line-height-tight { line-height: 1.3; }
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.02),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.timeline-card:hover::before {
+  transform: translateX(100%);
+}
 </style>

@@ -1,24 +1,42 @@
-/* Grand Light Mode - Mesh Gradients & Glassmorphism */
+﻿/* ═══════════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Premium Dark Mode
+   Colors: #FF4B4B (primary), #00D4B1 (teal), #6C5CE7 (purple)
+   Background: #0A0A0A | Fonts: Outfit (headings), Inter (body)
+   ═══════════════════════════════════════════════════════════════ */
 
 :root {
   --primary: #ff4b4b;
-  --secondary: #31333f;
+  --primary-dim: rgba(255, 75, 75, 0.15);
+  --secondary: #ffffff;
+  --secondary-dim: #888;
   --accent-teal: #00d4b1;
+  --accent-teal-dim: rgba(0, 212, 177, 0.15);
   --accent-purple: #6c5ce7;
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --glass-surface: rgba(255, 255, 255, 0.65);
+  --accent-purple-dim: rgba(108, 92, 231, 0.15);
+  --accent-orange: #ff8f6b;
+  --accent-cyan: #00e5ff;
 
-  /* Grand Consistency Tokens */
-  --grand-radius: 32px;
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-surface: rgba(18, 18, 18, 0.7);
+  --glass-surface-hover: rgba(28, 28, 28, 0.85);
+
+  --grand-radius: 20px;
+  --grand-radius-sm: 14px;
   --grand-padding: 48px;
-  /* Standardize internal card padding */
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Base override for rounded-xl to be Grand */
-.v-theme--light .rounded-xl {
+body {
+  background-color: #0a0a0a;
+  color: var(--secondary);
+}
+
+/* ─── Rounded Override ──────────────────────────────────────── */
+.rounded-xl {
   border-radius: var(--grand-radius) !important;
 }
 
+/* ─── Mesh Background ───────────────────────────────────────── */
 .mesh-background {
   position: fixed;
   top: 0;
@@ -26,172 +44,275 @@
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background: #fafafa;
+  background: #0a0a0a;
   overflow: hidden;
 }
 
 .mesh-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.6;
-  animation: float-blob 20s infinite alternate;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: float-blob 25s infinite alternate ease-in-out;
+  will-change: transform;
 }
 
 .blob-1 {
-  top: -10%;
+  top: -15%;
   left: -10%;
   width: 50vw;
   height: 50vw;
   background: radial-gradient(
     circle,
-    rgba(255, 75, 75, 0.15) 0%,
-    rgba(255, 255, 255, 0) 70%
+    rgba(255, 75, 75, 0.25) 0%,
+    transparent 70%
   );
-  animation-delay: 0s;
 }
 
 .blob-2 {
-  bottom: -10%;
+  bottom: -15%;
   right: -10%;
-  width: 60vw;
-  height: 60vw;
+  width: 55vw;
+  height: 55vw;
   background: radial-gradient(
     circle,
-    rgba(0, 212, 177, 0.1) 0%,
-    rgba(255, 255, 255, 0) 70%
+    rgba(0, 212, 177, 0.18) 0%,
+    transparent 70%
   );
-  animation-delay: -5s;
+  animation-delay: -8s;
 }
 
 .blob-3 {
-  top: 40%;
-  left: 40%;
+  top: 35%;
+  left: 45%;
   width: 40vw;
   height: 40vw;
   background: radial-gradient(
     circle,
-    rgba(108, 92, 231, 0.08) 0%,
-    rgba(255, 255, 255, 0) 70%
+    rgba(108, 92, 231, 0.2) 0%,
+    transparent 70%
   );
-  animation-delay: -10s;
+  animation-delay: -15s;
 }
 
 @keyframes float-blob {
   0% {
     transform: translate(0, 0) scale(1);
   }
-
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
+  25% {
+    transform: translate(30px, -40px) scale(1.05);
   }
-
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
   }
-
+  75% {
+    transform: translate(15px, -30px) scale(1.08);
+  }
   100% {
     transform: translate(0, 0) scale(1);
   }
 }
 
-/* Ultra Glass - The Grand Standard */
+/* ─── Noise Overlay ─────────────────────────────────────────── */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ─── Ultra Glass — Deep Frosted ────────────────────────────── */
 .ultra-glass {
   background: var(--glass-surface);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(40px) saturate(1.2);
+  -webkit-backdrop-filter: blur(40px) saturate(1.2);
   border: 1px solid var(--glass-border);
   box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.02),
-    0 2px 4px -1px rgba(0, 0, 0, 0.02),
-    inset 0 0 20px rgba(255, 255, 255, 0.5);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: var(--transition-smooth);
   border-radius: var(--grand-radius) !important;
-  /* Enforce shape */
+  color: var(--secondary) !important;
 }
 
 .ultra-glass:hover {
-  transform: translateY(-5px) scale(1.01);
+  transform: translateY(-3px);
+  background: var(--glass-surface-hover);
   box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.05),
-    0 10px 10px -5px rgba(0, 0, 0, 0.02),
-    inset 0 0 20px rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.9);
+    0 16px 48px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Typography "Grand" overrides */
+/* ─── Typography ────────────────────────────────────────────── */
 .font-display {
   font-family: var(--font-heading) !important;
   letter-spacing: -0.03em;
 }
 
-/* Standard Section Header */
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
 .section-header {
   font-family: var(--font-heading) !important;
-  font-size: 3.5rem !important;
+  font-size: 3.2rem !important;
   font-weight: 900 !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: -0.03em !important;
   line-height: 1.1;
   color: var(--secondary);
 }
 
 .section-subtitle {
-  font-size: 1.25rem !important;
+  font-size: 1.15rem !important;
   font-weight: 400 !important;
-  color: #666;
-  max-width: 600px;
+  color: var(--secondary-dim);
+  max-width: 560px;
   margin: 0 auto;
+  line-height: 1.7;
 }
 
-/* Responsive Typography */
 @media (max-width: 959px) {
   .section-header {
-    font-size: 2.8rem !important;
+    font-size: 2.5rem !important;
   }
 }
-
 @media (max-width: 599px) {
   .section-header {
-    font-size: 2rem !important;
-    letter-spacing: -0.01em !important;
+    font-size: 1.85rem !important;
+    letter-spacing: -0.02em !important;
   }
   .section-subtitle {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
   }
 }
 
+/* ─── Gradient Text ─────────────────────────────────────────── */
 .grand-gradient-text {
   background: linear-gradient(135deg, #ff4b4b 0%, #ff8f6b 50%, #6c5ce7 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
-  /* Fix compatibility warning */
   -webkit-text-fill-color: transparent;
-  animation: shine 8s linear infinite;
+  animation: gradient-shift 6s ease infinite;
 }
 
-@keyframes shine {
-  to {
-    background-position: 200% center;
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
   }
 }
 
 .hero-shadow {
-  text-shadow:
-    0 20px 40px rgba(50, 50, 93, 0.1),
-    0 8px 16px rgba(0, 0, 0, 0.06);
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
-/* Geometric Decorations */
-.deco-circle {
-  position: absolute;
-  border-radius: 50%;
+/* ─── Scroll Animations ─────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 {
+  transition-delay: 0.1s;
+}
+.stagger-2 {
+  transition-delay: 0.2s;
+}
+.stagger-3 {
+  transition-delay: 0.3s;
+}
+.stagger-4 {
+  transition-delay: 0.4s;
+}
+.stagger-5 {
+  transition-delay: 0.5s;
+}
+
+/* ─── Section Divider ───────────────────────────────────────── */
+.section-divider {
+  height: 1px;
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0.2)
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
   );
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+/* ─── Glow Utilities ────────────────────────────────────────── */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(255, 75, 75, 0.2);
+}
+
+.glow-teal {
+  box-shadow: 0 0 20px rgba(0, 212, 177, 0.2);
+}
+
+/* ─── Gap Utilities ─────────────────────────────────────────── */
+.gap-2 {
+  gap: 8px;
+}
+.gap-3 {
+  gap: 12px;
+}
+.gap-4 {
+  gap: 16px;
+}
+.gap-6 {
+  gap: 24px;
+}
+
+/* ─── Icon Box Shared ───────────────────────────────────────── */
+.icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--grand-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+/* ─── Color Overrides ───────────────────────────────────────── */
+.text-secondary {
+  color: var(--secondary) !important;
+}
+.text-primary {
+  color: var(--primary) !important;
+}
+.text-grey {
+  color: var(--secondary-dim) !important;
+}
+
+/* ─── Hover Glow (Reusable) ─────────────────────────────────── */
+.hover-glow {
+  transition: var(--transition-smooth);
+}
+.hover-glow:hover {
+  box-shadow: 0 0 24px currentColor !important;
 }

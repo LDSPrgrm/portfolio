@@ -1,124 +1,179 @@
 ﻿<script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const socialLinks = [
   {
     icon: "mdi-github",
     url: "https://github.com/LDSPrgrm",
     label: "GitHub",
-    color: "#333",
   },
   {
     icon: "mdi-linkedin",
     url: "http://www.linkedin.com/in/lawsubala",
     label: "LinkedIn",
-    color: "#0077B5",
   },
   {
     icon: "mdi-email",
     url: "mailto:ldsprgrm@gmail.com",
     label: "Email",
-    color: "#EA4335",
   },
 ];
 
 const stats = [
-  { value: "2+", label: "Years Technical Experience" },
-  { value: "5+", label: "Projects Completed" },
-  { value: "100%", label: "Commitment" },
+  { value: "FastAPI / Go", label: "Backend Core", icon: "mdi-server" },
+  { value: "LLM Agents", label: "AI Orchestration", icon: "mdi-brain" },
+  {
+    value: "Flutter / React / Vue.js",
+    label: "Platform Dev",
+    icon: "mdi-cellphone-link",
+  },
 ];
+
+const loaded = ref(false);
+
+onMounted(() => {
+  setTimeout(() => (loaded.value = true), 100);
+});
 </script>
 
 <template>
-  <v-container class="py-16 mt-4 position-relative" fluid>
-    <!-- Geometric Decorators -->
-    <!-- Geometric Decorators Removed -->
-
+  <v-container class="hero-section py-16 mt-8 position-relative" fluid>
     <v-row justify="center" align="center" class="text-center">
       <v-col cols="12" md="10" lg="8">
+        <!-- Status Badge -->
         <div
-          class="d-inline-block mb-6 px-4 py-1 rounded-pill bg-red-lighten-5 text-primary font-weight-bold text-uppercase"
-          style="
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255, 75, 75, 0.2);
-          "
+          :class="['hero-badge', { 'hero-visible': loaded }]"
+          class="d-inline-flex align-center mb-8 px-4 py-2 rounded-pill"
         >
-          ðŸš€ Available for Hire
+          <div class="status-dot mr-2"></div>
+          <span
+            class="font-mono"
+            style="font-size: 0.75rem; letter-spacing: 1.5px"
+          >
+            BUILDING AI & REAL-TIME SYSTEMS
+          </span>
         </div>
 
+        <!-- Headline -->
         <h1
-          class="text-h3 text-sm-h2 text-md-h1 font-weight-black mb-4 font-display hero-shadow animate-float"
-          style="line-height: 1.1"
+          :class="['hero-title', { 'hero-visible': loaded }]"
+          class="font-display mb-5"
+          style="line-height: 1.05"
         >
           <span class="grand-gradient-text">Architecting</span><br />
           <span class="text-secondary">Intelligence</span>
         </h1>
 
+        <!-- Subtitle -->
         <h2
-          class="text-subtitle-1 text-sm-h5 text-md-h4 font-weight-regular text-secondary mb-8 opacity-75 font-display"
+          :class="['hero-subtitle', { 'hero-visible': loaded }]"
+          class="text-subtitle-1 text-sm-h5 text-md-h4 font-weight-regular mb-10 font-display"
+          style="color: var(--secondary-dim); line-height: 1.4"
         >
-          Lawrence David Subala | Full-Stack AI Developer
+          Lawrence David Subala<br class="d-sm-none" />
+          <span class="d-none d-sm-inline"> · </span>Full-Stack AI & ML Engineer
         </h2>
 
-        <div class="d-flex flex-wrap justify-center gap-3 mb-10 mb-sm-12">
+        <!-- Social Links -->
+        <div
+          :class="['hero-actions', { 'hero-visible': loaded }]"
+          class="d-flex flex-wrap justify-center gap-3 mb-12"
+        >
           <v-btn
             v-for="link in socialLinks"
             :key="link.label"
             :href="link.url"
             target="_blank"
-            variant="flat"
+            variant="outlined"
             size="large"
             color="white"
-            class="ultra-glass text-secondary font-weight-bold px-5 px-sm-8"
-            rounded="xl"
-            height="48"
+            class="social-btn font-weight-bold px-6"
+            rounded="lg"
+            height="46"
           >
-            <v-icon start :color="link.color" size="22">{{ link.icon }}</v-icon>
+            <v-icon start size="20">{{ link.icon }}</v-icon>
             {{ link.label }}
+          </v-btn>
+
+          <v-btn
+            href="/resume.pdf"
+            target="_blank"
+            variant="flat"
+            size="large"
+            color="primary"
+            class="social-btn font-weight-bold px-6"
+            rounded="lg"
+            height="46"
+          >
+            <v-icon start size="20">mdi-download</v-icon>
+            Resume
           </v-btn>
         </div>
 
-        <!-- Grand Intro Card -->
+        <!-- Intro Card -->
         <v-card
-          class="ultra-glass pa-5 pa-sm-8 pa-md-12 text-center mx-auto relative overflow-visible"
-          max-width="800"
+          :class="['hero-card', { 'hero-visible': loaded }]"
+          class="ultra-glass pa-6 pa-sm-8 pa-md-10 text-center mx-auto relative overflow-visible intro-card"
+          max-width="780"
           rounded="xl"
-          style="border-top: 6px solid #ff4b4b"
         >
-          <!-- Absolute Badge -->
-          <div class="absolute-badge bg-white shadow-lg">
-            <v-icon color="primary" size="32">mdi-code-json</v-icon>
+          <!-- Floating Badge -->
+          <div class="floating-badge">
+            <v-icon color="primary" size="28">mdi-brain</v-icon>
           </div>
 
-          <h3 class="text-h4 font-weight-bold text-secondary mb-6 mt-4">
+          <h3
+            class="text-h5 text-sm-h4 font-weight-bold text-secondary mb-5 mt-4 font-display"
+          >
             Engineering Reality
           </h3>
 
           <p
-            class="text-body-1 text-secondary mb-8"
-            style="font-size: 1.25rem !important; line-height: 1.8"
+            class="text-body-1 mb-8 mx-auto"
+            style="
+              max-width: 600px;
+              line-height: 1.85;
+              color: var(--secondary-dim);
+            "
           >
-            "I treat code as a medium for converting chaos into clarity. Whether
-            it's orchestrating
-            <span class="text-primary font-weight-bold">LLM agents</span> or
-            optimizing
+            I design and deploy end-to-end intelligent systems — from
             <span class="text-primary font-weight-bold"
-              >real-time pipelines</span
-            >, I build tools that feel inevitable."
+              >low-latency real-time pipelines</span
+            >
+            to
+            <span class="text-primary font-weight-bold"
+              >orchestrating LLM agents</span
+            >
+            — building scalable architectures that transform complex chaos into
+            clarity.
           </p>
 
           <div
-            class="d-flex justify-space-around flex-wrap gap-4 pt-4 border-t"
+            class="d-flex justify-space-around flex-wrap gap-4 pt-6 stats-strip"
           >
-            <div v-for="stat in stats" :key="stat.label" class="text-center">
+            <div
+              v-for="stat in stats"
+              :key="stat.label"
+              class="stat-item text-center"
+            >
+              <v-icon
+                class="mb-2"
+                size="22"
+                :style="'color: var(--accent-teal); opacity: 0.7'"
+                >{{ stat.icon }}</v-icon
+              >
               <div
-                class="text-h5 text-sm-h4 text-md-h3 font-weight-black text-primary mb-1"
+                class="text-h6 text-sm-h5 font-weight-black text-secondary mb-1 font-display"
               >
                 {{ stat.value }}
               </div>
               <div
-                class="text-caption text-uppercase font-weight-bold text-grey"
+                class="font-mono text-uppercase"
+                style="
+                  font-size: 0.65rem;
+                  letter-spacing: 1.5px;
+                  color: var(--accent-teal);
+                "
               >
                 {{ stat.label }}
               </div>
@@ -131,28 +186,136 @@ const stats = [
 </template>
 
 <style scoped>
-.gap-4 {
-  gap: 16px;
-}
-.gap-3 {
-  gap: 12px;
-}
-.border-t {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+/* ─── Staggered Entrance ────────────────────────────────── */
+.hero-badge,
+.hero-title,
+.hero-subtitle,
+.hero-actions,
+.hero-card {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
 }
 
-.absolute-badge {
+.hero-badge.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+.hero-title.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+.hero-subtitle.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+.hero-actions.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.55s;
+}
+.hero-card.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.7s;
+}
+
+/* ─── Title Sizing ──────────────────────────────────────── */
+.hero-title {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+/* ─── Badge ─────────────────────────────────────────────── */
+.hero-badge {
+  background: rgba(255, 75, 75, 0.06);
+  border: 1px solid rgba(255, 75, 75, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00d4b1;
+  box-shadow: 0 0 8px #00d4b1;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+}
+
+/* ─── Social Buttons ────────────────────────────────────── */
+.social-btn {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  transition: all 0.3s ease;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.01em;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Intro Card ────────────────────────────────────────── */
+.intro-card {
+  border-top: 2px solid rgba(255, 75, 75, 0.4) !important;
+}
+
+.intro-card:hover {
+  border-top-color: #ff4b4b !important;
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(255, 75, 75, 0.08) !important;
+}
+
+.floating-badge {
   position: absolute;
-  top: -30px;
+  top: -26px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(255, 75, 75, 0.2);
-  border: 4px solid white;
+  background: #0e0e0e;
+  border: 1px solid rgba(255, 75, 75, 0.3);
+  box-shadow: 0 8px 24px rgba(255, 75, 75, 0.2);
+}
+
+/* ─── Stats Strip ───────────────────────────────────────── */
+.stats-strip {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item {
+  min-width: 120px;
+  padding: 8px 4px;
+}
+
+@media (max-width: 599px) {
+  .stat-item {
+    min-width: 100px;
+  }
 }
 </style>
