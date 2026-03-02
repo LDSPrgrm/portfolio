@@ -59,7 +59,7 @@ onMounted(() => {
             {{ link.label }}
           </a>
           <v-btn
-            href="/resume.pdf"
+            href="/portfolio/resume.pdf"
             target="_blank"
             variant="outlined"
             color="primary"
@@ -96,7 +96,11 @@ onMounted(() => {
               }}</v-list-item-title>
             </v-list-item>
             <v-divider class="my-2 opacity-10"></v-divider>
-            <v-list-item href="/resume.pdf" target="_blank" class="rounded-lg">
+            <v-list-item
+              href="/portfolio/resume.pdf"
+              target="_blank"
+              class="rounded-lg"
+            >
               <v-list-item-title class="font-weight-medium text-primary">
                 <v-icon start size="16">mdi-file-document-outline</v-icon>
                 Resume

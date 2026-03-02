@@ -39,7 +39,7 @@
               height="56"
             >
               <span style="font-size: 1rem; letter-spacing: 0.3px"
-                >ldsprgrm@gmail.com</span
+                >Send a Message</span
               >
               <v-icon end size="22" class="ml-2">mdi-email-fast</v-icon>
             </v-btn>
@@ -85,7 +85,7 @@
                 icon="mdi-file-document-outline"
                 variant="text"
                 size="small"
-                href="/resume.pdf"
+                href="/portfolio/resume.pdf"
                 target="_blank"
                 class="footer-icon"
               ></v-btn>

@@ -256,6 +256,7 @@ const certifications = ref([
 /* ─── Timeline ──────────────────────────────────────────── */
 .timeline-container {
   padding-left: 24px;
+  position: relative;
 }
 
 .timeline-line {
@@ -264,6 +265,7 @@ const certifications = ref([
   bottom: 0;
   left: 31px;
   width: 1px;
+  height: 100%;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.08),

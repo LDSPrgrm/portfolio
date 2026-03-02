@@ -30,7 +30,7 @@ const sweProjects = [
   {
     title: "SakAI",
     role: "Ride-Hailing Platform",
-    desc: "Multi-role marketplace with negotiation flows, and trust-score system. Implemented real-time systems with offline support and subscription features.",
+    desc: "Ride-hailing and delivery platform. Implemented real-time systems and subscription features.",
     tags: ["Flutter", "Go", "PostgreSQL", "WebSockets"],
     icon: "mdi-car-connected",
     color: "#FF8F6B",

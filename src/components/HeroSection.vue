@@ -96,7 +96,7 @@ onMounted(() => {
           </v-btn>
 
           <v-btn
-            href="/resume.pdf"
+            href="/portfolio/resume.pdf"
             target="_blank"
             variant="flat"
             size="large"
