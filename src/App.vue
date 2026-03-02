@@ -45,8 +45,9 @@ onMounted(() => {
     <v-app-bar class="nav-bar" flat density="comfortable" height="64">
       <v-container class="d-flex align-center justify-space-between py-0">
         <a href="#" class="nav-logo font-display text-decoration-none">
-          <span class="text-primary font-weight-black">L</span
-          ><span class="text-secondary font-weight-bold">DS</span>
+          <span class="logo-box">
+            <span class="logo-l">L</span><span class="logo-ds">DS</span>
+          </span>
         </a>
 
         <div class="d-none d-sm-flex align-center gap-2">
@@ -152,8 +153,31 @@ onMounted(() => {
 }
 
 .nav-logo {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.logo-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff4b4b;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.logo-l {
+  color: #ffffff;
+}
+
+.logo-ds {
+  color: #ffffff;
 }
 
 .nav-link {
