@@ -1,0 +1,65 @@
+﻿Lawrence David Subala
+La Union, Philippines · Email · GitHub · LinkedIn
+________________
+
+
+Professional Summary
+* Software Engineer specializing in AI-powered applications, real-time data pipelines, and full-stack architectures. Experienced in designing and deploying low-latency AI inference workflows, interactive analytics platforms, and end-to-end AI solutions from model integration to production-ready deployment. Skilled in AI/ML, full-stack development, mobile platforms, and cloud-based systems.
+________________
+
+
+Work Experience
+* Full-Stack Software Engineer —  Lorma Colleges, La Union, Philippines                Jun 2025 – Aug 2025
+   * Developed a full-stack ride-hailing system spanning mobile clients, backend APIs, and admin tools.
+   * Architected backend services for ride matching, dispatch logic, and trip lifecycle management.
+   * Implemented real-time ride synchronization via event-driven architecture, reducing latency vs polling.
+   * Built an admin dashboard for ride monitoring, driver management, and user feedback workflows.
+   * Designed API contracts and data schemas ensuring integration consistency across services.
+________________
+
+
+Education
+* LORMA Colleges — Bachelor of Science in Computer Science                                                2026
+________________
+
+
+Project Experience
+* Full-Stack Software Engineer — SakAI: Ride-Hailing and Delivery Platform                Feb 2026 – Present
+   * Developed a cash-on-delivery errand and delivery platform for small-town and semi-urban markets.
+   * Built multi-role marketplace with negotiation flows, add-on task handling, and trust-score system.
+   * Implemented real-time systems with offline support and subscription-based features.
+   * Managed end-to-end product development from core features to launch readiness.
+* Full-Stack Software Engineer — Errandify: Errand and Delivery Platform                Feb 2026 – Present
+   * Developed a cash-on-delivery errand and delivery platform for small-town and semi-urban markets.
+   * Built multi-role marketplace with negotiation flows, add-on task handling, and trust-score system.
+   * Implemented real-time systems with offline support and subscription-based features.
+   * Managed end-to-end product development from core features to launch readiness.
+* AI Developer — AlgoVision: AI-Powered Educational Video Generation Platform        Apr 2025 – Present
+   * Developed AI-powered platform generating animated instructional videos from high-level topics.
+   * Designed and implemented content generation pipeline for reliable, high-quality output.
+   * Orchestrated an automated error detection and self-correction to improve reliability and output accuracy.
+   * Built interactive platform with real-time monitoring, project management, and AI-assisted tutoring.
+* CycloSync — Real-Time Cycling Performance Platform                                
+   * Engineered a real-time cycling analytics platform with streaming data ingestion that connects to BLE devices, parses telemetry data, and transforms raw sensor streams into structured performance metrics.
+   * Designed a protocol-driven training engine that categorizes rides, visualizes recovery and fatigue, and delivers interactive dashboards including performance charts, calendars, and recovery indicators.
+________________
+
+
+Certifications
+* ITPEC IT Passport Certification                                                                        2025
+________________
+
+
+Technical Skills
+* AI / Machine Learning
+   * ASR, TTS, RAG, Multimodal AI, PyTorch, TensorFlow, Transformers
+* Languages
+   * Python, Golang, Typescript, Javascript, PHP, Dart
+* Backend & Data
+   * FastAPI, Node.js, GoLang, Laravel, PostgreSQL/PostGIS, NoSQL, Supabase Realtime, REST APIs, Event-Driven Systems, Docker, CI/CD
+* Frontend & Mobile
+   * React, Next.js, Vue.js, React Native, Flutter, Responsive & Cross-Platform Interfaces, Offline-First Design
+* Realtime Systems
+   * Realtime Subscriptions, Event-Driven Architecture, Queued Sync, Push Notifications, Firebase FCM
+* Other
+   * Performance Optimization, Full Product Lifecycle, Monetization Systems
