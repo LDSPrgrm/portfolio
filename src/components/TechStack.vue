@@ -1,34 +1,35 @@
 ﻿<script setup>
 const aiStack = [
   { name: "Python", icon: "mdi-language-python", color: "#3776AB" },
-  { name: "LLM Agents", icon: "mdi-brain", color: "#FF4B4B" },
-  { name: "Manim", icon: "mdi-video-outline", color: "#E11D48" },
+  { name: "LLM Orchestrator", icon: "mdi-brain", color: "#FF4B4B" },
+  { name: "RAG Pipelines", icon: "mdi-database-search", color: "#E11D48" },
   {
-    name: "PyTorch / TF",
-    icon: "mdi-chart-bell-curve-cumulative",
+    name: "Prompt Engineering",
+    icon: "mdi-text-box-edit-outline",
     color: "#EE4C2C",
   },
 ];
 
 const backendStack = [
-  { name: "Golang", icon: "mdi-language-go", color: "#00ADD8" },
+  { name: "Go", icon: "mdi-language-go", color: "#00ADD8" },
   { name: "FastAPI", icon: "mdi-api", color: "#009688" },
   { name: "PostgreSQL", icon: "mdi-database", color: "#336791" },
-  { name: "Supabase", icon: "mdi-database-eye", color: "#3ECF8E" },
+  { name: "Node.js", icon: "mdi-nodejs", color: "#339933" },
 ];
 
-const realtimeStack = [
-  { name: "WebSockets", icon: "mdi-swap-horizontal-bold", color: "#FF8F6B" },
-  { name: "BLE", icon: "mdi-bluetooth", color: "#0082FC" },
-  { name: "WASAPI", icon: "mdi-volume-high", color: "#9B59B6" },
-  { name: "Event-Driven", icon: "mdi-flash", color: "#F1C40F" },
+const devopsStack = [
+  { name: "Docker", icon: "mdi-docker", color: "#2496ED" },
+  { name: "Kubernetes", icon: "mdi-kubernetes", color: "#326CE5" },
+  { name: "CI/CD", icon: "mdi-github", color: "#2088FF" },
+  { name: "Playwright", icon: "mdi-test-tube", color: "#2EAD33" },
+  { name: "Appium", icon: "mdi-cellphone-check", color: "#9B59B6" },
 ];
 
 const frontendStack = [
   { name: "Flutter", icon: "mdi-cellphone-link", color: "#02569B" },
   { name: "Vue.js", icon: "mdi-vuejs", color: "#4FC08D" },
+  { name: "Nuxt.js", icon: "mdi-nuxt", color: "#00DC82" },
   { name: "React", icon: "mdi-react", color: "#01579B" },
-  { name: "Next.js", icon: "mdi-application-braces-outline", color: "#FFFFFF" },
 ];
 </script>
 
@@ -121,16 +122,16 @@ const frontendStack = [
               <h3
                 class="text-h5 font-weight-black text-secondary mb-2 font-display"
               >
-                Real-Time
+                DevOps & QA
               </h3>
               <p class="text-body-2 mb-6" style="color: var(--secondary-dim)">
-                Low-latency synchronization.
+                Cloud-native & testing frameworks.
               </p>
             </div>
 
             <div class="d-flex flex-wrap gap-2">
               <v-chip
-                v-for="tech in realtimeStack"
+                v-for="tech in devopsStack"
                 :key="tech.name"
                 size="small"
                 variant="outlined"

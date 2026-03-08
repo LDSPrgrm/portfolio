@@ -1,10 +1,10 @@
 ﻿Lawrence David Subala
-La Union, Philippines · Email · GitHub · LinkedIn
+La Union, Philippines · Email · GitHub · LinkedIn· Portfolio
 ________________
 
 
 Professional Summary
-* Software Engineer specializing in AI-powered applications, real-time data pipelines, and full-stack architectures. Experienced in designing and deploying low-latency AI inference workflows, interactive analytics platforms, and end-to-end AI solutions from model integration to production-ready deployment. Skilled in AI/ML, full-stack development, mobile platforms, and cloud-based systems.
+* Software Engineer specializing in AI-powered applications, full-stack development, and real-time data pipelines. Experienced in designing and deploying low-latency AI inference workflows, interactive analytics platforms, and end-to-end production-ready solutions. Skilled in building scalable, maintainable, and user-focused software across web, mobile, and cloud-based systems, with expertise in quality assurance and testing to ensure reliable, high-performance applications.
 ________________
 
 
@@ -51,15 +51,12 @@ ________________
 
 
 Technical Skills
-* AI / Machine Learning
-   * ASR, TTS, RAG, Multimodal AI, PyTorch, TensorFlow, Transformers
-* Languages
-   * Python, Golang, Typescript, Javascript, PHP, Dart
-* Backend & Data
-   * FastAPI, Node.js, GoLang, Laravel, PostgreSQL/PostGIS, NoSQL, Supabase Realtime, REST APIs, Event-Driven Systems, Docker, CI/CD
-* Frontend & Mobile
-   * React, Next.js, Vue.js, React Native, Flutter, Responsive & Cross-Platform Interfaces, Offline-First Design
-* Realtime Systems
-   * Realtime Subscriptions, Event-Driven Architecture, Queued Sync, Push Notifications, Firebase FCM
-* Other
-   * Performance Optimization, Full Product Lifecycle, Monetization Systems
+* Languages: Python, Go, TypeScript, JavaScript, PHP, Dart
+* AI & LLM Workflows: Prompt engineering, RAG pipelines, LLM orchestration, LLM pipelines
+* Frameworks & Libraries: FastAPI, Node.js, Gin, React, Vue.js, Next.js, Nuxt.js, Laravel, React Native, Flutter
+* Databases & Caching: PostgreSQL, MySQL, MariaDB, MongoDB, Redis
+* DevOps & CI/CD: Docker, Kubernetes, GitHub Actions
+* Architecture & Design: Microservices, Modular Monolith, Event-Driven Architecture, Contract-First APIs
+* Testing & QA: Manual testing, Automated testing, Unit testing, Integration testing, Regression testing, API testing
+* Automation & Testing Frameworks: Playwright, Appium
+* Bug Tracking & Collaboration: Jira, GitHub Issues

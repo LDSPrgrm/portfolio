@@ -12,10 +12,17 @@ const experience = ref([
   },
   {
     title: "Full-Stack Software Engineer",
-    company: "SakAI Platform",
+    company: "SakAI",
     period: "Feb 2026 – Present",
-    desc: "Developing a cash-on-delivery errand and delivery platform. Built multi-role marketplace with negotiation flows, add-on task handling, and trust-score system. Implemented real-time systems with offline support.",
+    desc: "Developing a ride-hailing and delivery platform for small-town markets. Built multi-role marketplace with negotiation flows. Implemented real-time systems with offline support and subscription-based features.",
     color: "#FF4B4B",
+  },
+  {
+    title: "Full-Stack Software Engineer",
+    company: "Errandify",
+    period: "Feb 2026 – Present",
+    desc: "Developing a cash-on-delivery errand and delivery platform. Built multi-role marketplace handling add-on tasks and a trust-score system. Managed end-to-end product development.",
+    color: "#00E5FF",
   },
   {
     title: "AI Developer",

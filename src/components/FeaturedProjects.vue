@@ -36,9 +36,9 @@ const sweProjects = [
     color: "#FF8F6B",
   },
   {
-    title: "Errandlify",
+    title: "Errandify",
     role: "On-Demand Errand Services",
-    desc: "Cash-on-delivery errand and delivery platform for small-town markets. Built multi-role marketplace handling add-on tasks and subscription capabilities.",
+    desc: "Cash-on-delivery errand and delivery platform for small-town markets. Built multi-role marketplace handling add-on tasks, a trust-score system, and offline capabilities.",
     tags: ["Flutter", "Supabase", "Firebase"],
     icon: "mdi-truck-delivery",
     color: "#00E5FF",

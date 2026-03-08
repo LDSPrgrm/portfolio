@@ -20,11 +20,19 @@ const socialLinks = [
 ];
 
 const stats = [
-  { value: "FastAPI / Go", label: "Backend Core", icon: "mdi-server" },
-  { value: "LLM Agents", label: "AI Orchestration", icon: "mdi-brain" },
   {
-    value: "Flutter / React / Vue.js",
-    label: "Platform Dev",
+    value: "End-to-End Systems",
+    label: "Full-Stack Core",
+    icon: "mdi-server-network",
+  },
+  {
+    value: "AI & Data Pipelines",
+    label: "Intelligent Workflows",
+    icon: "mdi-brain",
+  },
+  {
+    value: "Cross-Platform Apps",
+    label: "Mobile & Web",
     icon: "mdi-cellphone-link",
   },
 ];
@@ -71,7 +79,8 @@ onMounted(() => {
           style="color: var(--secondary-dim); line-height: 1.4"
         >
           Lawrence David Subala<br class="d-sm-none" />
-          <span class="d-none d-sm-inline"> · </span>Full-Stack AI & ML Engineer
+          <span class="d-none d-sm-inline"> · </span>Full-Stack Software & AI
+          Engineer
         </h2>
 
         <!-- Social Links -->
@@ -136,16 +145,19 @@ onMounted(() => {
               color: var(--secondary-dim);
             "
           >
-            I design and deploy end-to-end intelligent systems — from
+            Software Engineer specializing in
             <span class="text-primary font-weight-bold"
-              >low-latency real-time pipelines</span
-            >
-            to
+              >AI-powered applications</span
+            >,
             <span class="text-primary font-weight-bold"
-              >orchestrating LLM agents</span
-            >
-            — building scalable architectures that transform complex chaos into
-            clarity.
+              >real-time data pipelines</span
+            >, and
+            <span class="text-primary font-weight-bold"
+              >full-stack architectures</span
+            >. Experienced in designing end-to-end solutions, integrating
+            models, and ensuring reliability through comprehensive
+            <span class="text-primary font-weight-bold">Quality Assurance</span>
+            and testing workflows.
           </p>
 
           <div
